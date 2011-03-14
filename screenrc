@@ -16,12 +16,27 @@ term screen-256color
   startup_message off                  # default: on
 
 # Change the number of scrollback lines
-  defscrollback 1000                   # default: 100
+  defscrollback 10000                   # default: 100
+  
+  deflogin off
+# Default shell
+  shell bash
+# Defaul shell title - dynamic
+  shelltitle "] |bash"
+
+# detach on hangup - if my dial-up session fails, screen will simply
+# detach and let me re re-attach later.
+  autodetach on
+
 
 # Make navigating between regions easier
   bind s split
   bind j focus down
   bind k focus up
+  
+  bindkey -k k5 prev # F5 for previous window
+  bindkey -k k6 next # F6 for next window
+
 
 # Make resizing regions easier
   bind = resize =
@@ -31,6 +46,33 @@ term screen-256color
 # Configure status bar at the bottom of the terminal
   hardstatus alwayslastline
   hardstatus string "%{= kb}[ %=%{w}%?%-Lw%?%{C}(%{W}%n*%f %t%?(%u)%?%{C})%{w}%?%+Lw%?%?%= %{b}][%{C} %Y.%m.%d %{W}%0c %{b}]"
+  
+  # hardstatus string '%02=%0>%{= kw}%-Lw%50>%{=b bw} %n  %t %{= kw}%+Lw%{= kw}%-1<%{-}%{=dd}'
+
+  caption always "%?%F%{=b bW}%:%{= bW}%? [%f%] %t - %h %-050=%H%-027= %D %d %M %Y, %C %A %{= .b}%{-}%{=dd}"
+
+  windowlist title "Num %10=Title %=Flags%"
+  windowlist string "  %n - %10= %t %f"
+   
+# Timeout for displaying messages
+  msgwait 5
+  activity "         Activity has appeared in window      %n - %t"   
+
+# Support alternate screens so that, for example, when you
+# quit out of vi, the display is redrawn as it was before vi
+# redrew the full screen.
+  altscreen on
+  
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+  attrcolor b ".I"
+   
+# tell screen how to set colors. AB = background, AF=foreground
+  termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'  
+  
+# Make scroll back work
+  termcapinfo xterm* ti@:te@
+  
 
 # Turn off the fucking visual bell
   vbell off

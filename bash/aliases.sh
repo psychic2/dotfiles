@@ -31,6 +31,8 @@ alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../..'
 alias grep='grep --color'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Ubuntu/Debian package management
 alias as="apt-cache search"

@@ -1,6 +1,6 @@
 [user]
-  name = Miles Z. Sterrett
-  email = miles.sterrett@gmail.com
+        name = James R
+        email = James.Rudd@sydneyboys-h.schools.nsw.edu.au
 
 [apply]
   whitespace = strip
@@ -22,6 +22,9 @@
   lg      = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   l1     = log --pretty=oneline --abbrev-commit --decorate
   lp      = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
   who     = shortlog -s --
 	datetag = !git tag `date \"+%Y%m%d%H%M\"`
 
@@ -29,7 +32,8 @@
   add-unmerged  = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
 [github]
-	user = mileszs
-	token = 9b0bc636d124a7f14b23c86df36064ac
+        token = 1ca4db8ded514fa370a2174e11043fe3
+        user = James Rudd
+		
 [merge]
 	tool = vimdiff

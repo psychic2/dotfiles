@@ -6,7 +6,7 @@
 set t_Co=256
 
 " Preferred colorscheme
-colorscheme railscasts
+colorscheme evening
 
 " Tab and Indent Settings
 set autoindent
