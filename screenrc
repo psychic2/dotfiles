@@ -74,7 +74,13 @@ term screen-256color
   termcapinfo xterm* ti@:te@
   
 
-# Turn off the fucking visual bell
+# Turn off the visual bell
   vbell off
+  
+# Load the SSH Agent
+  setenv SSH_AUTH_SOCK $HOME/.screen-ssh-agent
+  screen 10 ssh-agent -a $SSH_AUTH_SOCK $SHELL  
+# Start on BASH Screen
+  screen 0 bash 
 
 # End of file
