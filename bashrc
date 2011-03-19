@@ -30,8 +30,6 @@ export PGOPTIONS='-c client_min_messages=WARNING'
          GRAY="\[\033[1;30m\]"
      NO_COLOR="\[\e[0m\]"
 
-### PROMPT ###
-export PS1="${GREEN}\u@\h${WHITE}:${CYAN}\w ${NO_COLOR}\$ "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -62,6 +60,12 @@ done
 
 # git completion!
 source ~/.git-completion.bash
+
+### PROMPT ###
+#export PS1="${GREEN}\u@\h${WHITE}:${CYAN}\w ${NO_COLOR}\$ "
+#export PS1="${GREEN}\u@\h${WHITE}:${CYAN}\w \W$(__git_ps1 " (%s)")${NO_COLOR}\$ "
+#export PS1="${GREEN}\u@\h${WHITE}:${CYAN}\w [\033[00;35m\]$(current_git_branch)\[\033[00m\] ${NO_COLOR}\$ "
+export PS1="${GREEN}\u@\h${WHITE}:${CYAN}\w \[\$(branch_color)\]\$(parse_git_branch)${NO_COLOR}\$ "
 
 # RVM
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
