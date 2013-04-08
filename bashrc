@@ -69,3 +69,5 @@ export PS1="${GREEN}\u@\h${WHITE}:${CYAN}\w \[\$(branch_color)\]\$(parse_git_bra
 
 # RVM
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+export SVN_MERGE="meld"

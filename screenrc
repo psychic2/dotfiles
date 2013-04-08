@@ -78,8 +78,8 @@ term screen-256color
   vbell off
   
 # Load the SSH Agent
-  setenv SSH_AUTH_SOCK $HOME/.screen-ssh-agent
-  screen 10 ssh-agent -a $SSH_AUTH_SOCK $SHELL  
+#  setenv SSH_AUTH_SOCK $HOME/.screen-ssh-agent
+#  screen 10 ssh-agent -a $SSH_AUTH_SOCK $SHELL  
 # Start on BASH Screen
   screen 0 bash 
 
