@@ -50,7 +50,7 @@ bind -m vi-insert "\C-p":dynamic-complete-history
 bind -m vi-insert "\C-n":menu-complete
 
 # enable programmable completion features
-if [ -f /etc/bash_completion ]; then
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
@@ -59,7 +59,9 @@ for a in `ls $HOME/.bash/*.sh`; do
 done
 
 # git completion!
-source ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ] && ! shopt -oq posix; then
+  . ~/.git-completion.bash
+fi
 
 ### PROMPT ###
 #export PS1="${GREEN}\u@\h${WHITE}:${CYAN}\w ${NO_COLOR}\$ "
